@@ -50,6 +50,7 @@
 .header__option {
     display: flex;
     flex-direction: column;
+    text-decoration: none !important;
 }
 
 .header__optionLineOne{
