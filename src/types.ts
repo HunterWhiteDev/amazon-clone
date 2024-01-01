@@ -11,4 +11,5 @@ export interface Product {
   price: number;
   desc: string;
   slug: string;
+  id: string | number;
 }

@@ -5,12 +5,15 @@ import "./ProductPage.css";
 import { Product } from "../../types";
 import Rating from "../../components/Rating/Rating";
 import ProductComponent from "../../components/Product/Product";
+import { useStateValue } from "../../StateProvider";
 function ProductPage() {
   const { productSlug } = useParams<{ productSlug: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [mediaUrl, setMediaUrl] = useState<string>("");
 
   const descRef = useRef<HTMLDivElement | null>(null);
+
+  const [{ basket }, dispatch] = useStateValue();
 
   useEffect(() => {
     setProduct(products[productSlug as keyof typeof products]);
@@ -20,6 +23,20 @@ function ProductPage() {
     if (product) setMediaUrl(product["media"][0].url);
     if (descRef.current) descRef.current.innerHTML = product?.desc || "";
   }, [product]);
+
+  const addToBasket = () => {
+    if (product)
+      dispatch({
+        type: "ADD_TO_BASKET",
+        item: {
+          id: product.id,
+          title: product.title,
+          image: product.image,
+          price: product.price,
+          rating: product.rating,
+        },
+      });
+  };
 
   return (
     <>
@@ -47,7 +64,10 @@ function ProductPage() {
           </div>
           <div className="productPage__rightPrice">
             <h4>${product?.price}</h4>
-            <button className="productPage__rightBuyButton">
+            <button
+              className="productPage__rightBuyButton"
+              onClick={addToBasket}
+            >
               Add to Basket
             </button>
           </div>
