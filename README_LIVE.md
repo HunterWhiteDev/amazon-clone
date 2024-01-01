@@ -1,7 +1,9 @@
 # Getting Started
 
 To login, user the following credentials:
+
 email/username: `123@test.com`
+
 password: `password`
 
 ### `Home Page`
