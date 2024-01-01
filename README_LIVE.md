@@ -1,6 +1,6 @@
 # Getting Started
 
-To login, user the following credentials:
+To login, use the following credentials:
 
 email/username: `123@test.com`
 
