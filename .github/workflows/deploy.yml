@@ -17,7 +17,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no hunter@hunterwhitedev.com << 'EOF'
             cd /home/hunter/websites/amazon-clone || exit
-            git pull origin master || exit 1
+            git pull origin main || exit 1
             sudo npm install || exit 1
             sudo npm run build || exit 1
             sudo cp -r build/* /home/hunter/websites/amazon-clone/public_html || exit 1
