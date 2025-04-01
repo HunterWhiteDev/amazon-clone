@@ -1,0 +1,25 @@
+name: Deploy Portfolio App
+on:
+  push:
+    branches:
+      - main # Or your default branch name
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.HOMELAB_SSH_KEY }}
+      - name: Deploy to Server
+        run: |
+          ssh -o StrictHostKeyChecking=no hunter@hunterwhitedev.com << 'EOF'
+            cd /home/hunter/websites/amazon-clone || exit
+            git pull origin master || exit 1
+            sudo npm install || exit 1
+            sudo npm run build || exit 1
+            sudo cp -r build/* /home/hunter/websites/amazon-clone/public_html || exit 1
+            sudo systemctl restart apache2 || exit 1
+          EOF
