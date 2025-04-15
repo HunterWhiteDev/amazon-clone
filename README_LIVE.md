@@ -11,15 +11,15 @@ password: `password`
 Home page contains banner, sign in, cart, returns & orders page, etc...
 ![Home Page!](https://i.imgur.com/0jdoG7o.png)
 
-### `Products`
-
-The products section on the home page allows you to add different products to your cart.
-![Products!](https://i.imgur.com/p0jBcMg.png)
-
 ### `Sign In Page`
 
 Sign in with the email: 123@test.com and the password: password
 ![Sign In!](https://i.imgur.com/WrFcNUz.png)
+
+### `Products`
+
+The products section on the home page allows you to add different products to your cart.
+![Products!](https://i.imgur.com/p0jBcMg.png)
 
 ### `Returns & Orders`
 
