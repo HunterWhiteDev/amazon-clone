@@ -13,7 +13,7 @@ Home page contains banner, sign in, cart, returns & orders page, etc...
 
 ### `Sign In Page`
 
-Sign in with the email: 123@test.com and the password: password
+Sign in with the email: `123@test.com` and the password: `password`
 ![Sign In!](https://i.imgur.com/WrFcNUz.png)
 
 ### `Products`
